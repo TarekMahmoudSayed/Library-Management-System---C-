@@ -15,7 +15,7 @@ public class TextFileStorage
 
         while (dir != null)
         {
-            string candidate = Path.Combine(dir.FullName, "Data Access", "Data");
+            string candidate = Path.Combine(dir.FullName, "Data Acess", "Data");
 
             if (Directory.Exists(candidate))
             {
