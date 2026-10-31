@@ -1,6 +1,6 @@
-﻿using Infrastructure;
-using Bussiness_Layer;
-using Bussiness_Layer.CRUD;
+﻿using Bussiness_Layer;
+using Bussiness_Layer.Books;
+using Persentation;
 
 namespace Presentation.Screens;
 
@@ -8,7 +8,7 @@ internal class RemoveBookScreen : Screen
 {
     static private SearchBy _readRemoveByUserChoice()
     {
-        int input = InputValidate.ReadIntFromUserBetween("\nWhat Do You Want To Reomve By [1] ID [2] Title ? ",1, 2);
+        int input = InputValidate.ReadIntFromUserBetween("\nWhat Do You Want To Remove By [1] ID [2] Title ? ",1, 2);
 
         return ((input == 1) ? SearchBy.ById : SearchBy.ByTitle);
 
@@ -18,7 +18,7 @@ internal class RemoveBookScreen : Screen
     {
         char c ;
 
-        Console.Write("\nAre You Sure You Want To Reomve This Book [y/n] ? ");
+        Console.Write("\nAre You Sure You Want To Remove This Book [y/n] ? ");
 
         bool isOkey = char.TryParse (Console.ReadLine(), out c);
 
@@ -83,7 +83,7 @@ internal class RemoveBookScreen : Screen
             Console.WriteLine("\n\nBook Removed Successfully ");
         }else
         {
-            Console.WriteLine("\n\nError Ouccered , Please Try Again ");
+            Console.WriteLine("\n\nError Occurred , Please Try Again ");
 
         }
 

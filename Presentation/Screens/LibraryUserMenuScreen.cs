@@ -1,14 +1,10 @@
-﻿using Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Persentation;
+using Bussiness_Layer.Users;
+using Data_Access.Entities;
 
-using Data_Acess;
-using Bussiness_Layer;
+namespace Presentation.Screens;
 
-namespace Presentation.Screens; 
-
- internal class LibraryUserMenueScreen : Screen
+internal class LibraryUserMenuScreen : Screen
  {
     enum menueOptions
     {
@@ -47,7 +43,7 @@ namespace Presentation.Screens;
     }
     static private void _goingBackToMenue()
     {
-        Console.Write("\n\n\t\t\t\t\tPress Any Key To Go Back Library User Menue.");
+        Console.Write("\n\n\t\t\t\t\tPress Any Key To Go Back Member Menue.");
         Console.ReadKey();
         Console.Clear();
         ShowMenueScreen();
@@ -104,7 +100,7 @@ namespace Presentation.Screens;
 
     internal static void ShowMenueScreen()
     {
-        Screen.DrawScreenHeader("Library User Menue Screen");
+        Screen.DrawScreenHeader("Memeber Menue Screen");
         _showMenueOption();
 
         _performMenueOption(_readMenueOption());

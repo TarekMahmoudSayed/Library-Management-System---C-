@@ -1,9 +1,6 @@
-﻿using Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Data_Access.Entities;
 
-namespace Bussiness_Layer.CRUD;
+namespace Bussiness_Layer.Books;
 
 static public class RemoveBook
 {
@@ -28,7 +25,7 @@ static public class RemoveBook
             return false;
         }
 
-        Infrastructure.File.SaveBooksDataToFile(Library.Books);
+        TextFileStorage.SaveBooksToFile(Library.Books);
 
         return true;
     }

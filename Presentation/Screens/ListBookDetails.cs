@@ -1,10 +1,8 @@
 ﻿using Bussiness_Layer;
-using Bussiness_Layer.CRUD;
-using Entities;
-using Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Bussiness_Layer.Books;
+using Data_Access.Entities;
+using Persentation;
+
 
 namespace Presentation.Screens; 
 
@@ -54,11 +52,11 @@ internal class ListBookDetails : Screen
         if (isSuccessed)
         {
             Console.WriteLine("\n\nBook Found Successfully :-) \n");
-            book.DisplayDetails();
+            DisplayBookDetails(book);
         }
         else
         {
-            Console.WriteLine("\n\nError Ouccered , Please Try Again ");
+            Console.WriteLine("\n\nError Occurred , Please Try Again ");
 
         }
     }

@@ -1,17 +1,12 @@
-﻿using Presentation.Screens;
-using System;
-using System.Collections.Generic;
-using System.Security;
-using System.Text;
-
-namespace Presentation;
+﻿namespace Presentation;
 
 using Bussiness_Layer;
+using Presentation.Screens;
 
 static internal class App
 {
 
-    static private void _run (Permissions permission, bool isSuccessed)
+    static private void _run (UserRole permission, bool isSuccessed)
     {
         if (!isSuccessed)
         {
@@ -20,10 +15,10 @@ static internal class App
 
         switch (permission) 
         {
-            case Permissions.Librarian:
+            case UserRole.Librarian:
                 LibrarianForm.Login();
                 break;
-            case Permissions.LibraryUser:
+            case UserRole.Member:
                 LibraryUserForm.Login();
                 break;
             default:
@@ -36,7 +31,7 @@ static internal class App
 
     static internal void Login ()
     {
-        Permissions permission;
+        UserRole permission;
         bool isSuccessed;
 
         LoginScreen.ShowLoginScreen(out permission, out isSuccessed);

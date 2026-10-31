@@ -1,10 +1,9 @@
-﻿using Bussiness_Layer;
-using Entities;
-using Infrastructure;
+﻿using Bussiness_Layer.Users;
+using Persentation;
 
 namespace Presentation.Screens
 {
-    internal class LibrarianMenueScreen : Screen
+    internal class LibrarianMenuScreen : Screen
     {
         enum menueOptions
         {
@@ -63,7 +62,7 @@ namespace Presentation.Screens
             Console.Write("\n\n\t\t\t\t\tPress Any Key To Go Back Librarian Menue.");
             Console.ReadKey();
             Console.Clear();
-            ShowMenueScreen();
+            ShowMenuScreen();
         }
         static void _performMenueOption (int choice)
         {
@@ -104,7 +103,7 @@ namespace Presentation.Screens
             }
 
         }
-        internal static void ShowMenueScreen()
+        internal static void ShowMenuScreen()
         {
             Screen.DrawScreenHeader("Librarian Menue Screen");
             _showMenueOption();

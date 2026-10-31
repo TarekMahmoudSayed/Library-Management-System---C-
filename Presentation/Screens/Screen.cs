@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace Presentation.Screens;
 
-namespace Presentation.Screens;
+using Bussiness_Layer.Users;
+using Data_Access.Entities;
 
-using Bussiness_Layer;
 internal class Screen
 {
 
@@ -12,7 +10,7 @@ internal class Screen
     {
 
         Console.WriteLine($"\n\n\t\t\t\t\tUser: {Login.GetCurrentUserName()}");
-        Console.WriteLine($"\t\t\t\t\tPermssion: {Login.GetCurrentPermssion()}");
+        Console.WriteLine($"\t\t\t\t\tPermssion: {Login.GetCurrentRoleName()}");
         Console.WriteLine($"\t\t\t\t\tDateTime: {DateTime.Now}");
 
     }
@@ -35,5 +33,19 @@ internal class Screen
         Console.Write("\t\t\t\t\t______________________________________\n");
 
 
+    }
+
+    protected static void DisplayBookDetails(Book book)
+    {
+        string status = (!book.IsBorrowed) ? "Avilable" : "Not Avilable";
+
+        Console.WriteLine("Book Card: ");
+        Console.WriteLine("=======================");
+        Console.WriteLine($"Title  : {book.Title}");
+        Console.WriteLine($"ID     : {book.ID}");
+        Console.WriteLine($"Author : {book.Author}");
+        Console.WriteLine($"Year   : {book.Year}");
+        Console.WriteLine($"Status   : {status}");
+        Console.WriteLine("=======================");
     }
 }

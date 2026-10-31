@@ -1,9 +1,4 @@
-﻿using Data_Modeling;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DataModeling; 
+﻿namespace Data_Access.Entities; 
 
 public class User
 {

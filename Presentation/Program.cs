@@ -1,8 +1,10 @@
-﻿namespace Presentation; 
+﻿namespace Presentation;
+
+
 
 static internal class Program
 {
-    static void Main(string[] args)
+  static void Main(string[] args)
     {
         while (true)
         {

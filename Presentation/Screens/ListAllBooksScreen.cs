@@ -1,8 +1,5 @@
-﻿using Bussiness_Layer.CRUD;
-using Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Bussiness_Layer.Books;
+using Data_Access.Entities;
 
 namespace Presentation.Screens; 
 
@@ -26,12 +23,14 @@ internal class ListAllBooksScreen : Screen
 
     static public void ShowListAllBooksScreen ()
     {
+
+        ListAllBooks.Execute(out List<Book> books);
+
         string subTitle = $"{Library.Books.Count()} Book(s)";
         Screen.DrawScreenHeader("List All Books Screen", subTitle);
 
         _printTableOfBooksHeader () ;
 
-        List<Book> books = new List<Book>(1000);
 
         ListAllBooks.Execute(out books);
 

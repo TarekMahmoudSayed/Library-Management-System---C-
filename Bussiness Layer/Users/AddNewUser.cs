@@ -1,10 +1,6 @@
-﻿using DataModeling;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace Bussiness_Layer.Users;
 
-namespace Bussiness_Layer;
-
+using Data_Access.Entities;
 using Infrastructure;
 
 public class AddNewUser
@@ -13,7 +9,8 @@ public class AddNewUser
     static public bool isValidUser (User user)
     {
 
-        List<User> users = Login.users;
+        List<User> users = TextFileStorage.LoadUsers();
+
 
         foreach (var i in users)
         {
@@ -33,8 +30,9 @@ public class AddNewUser
             return false;
         }
 
-        Login.users.Add(user);
-        Infrastructure.File.AddDataUserLineToFile(Infrastructure.File.ConvertUserRecordToLine(user));
+        user.Card.Password = EncryptionUtility.Hash(user.Card.Password);
+
+        TextFileStorage.AppendUserLine(TextFileStorage.ConvertUserRecordToLine(user));
 
         return true;
     }

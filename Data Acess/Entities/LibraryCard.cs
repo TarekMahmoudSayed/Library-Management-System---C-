@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Data_Modeling;
+﻿namespace Data_Access.Entities;
 
 public class LibraryCard
 {

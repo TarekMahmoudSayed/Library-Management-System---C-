@@ -1,10 +1,8 @@
 ﻿using Bussiness_Layer;
-using Bussiness_Layer.CRUD;
-using Entities;
-using Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Bussiness_Layer.Books;
+using Bussiness_Layer.Borrowing;
+using Data_Access.Entities;
+using Persentation;
 
 namespace Presentation.Screens
 {
@@ -70,7 +68,7 @@ namespace Presentation.Screens
             if (FindBook.Execute(out book, input, searchBy))
             {
                 Console.WriteLine("\n\nBook Found :-) \n");
-                book.DisplayDetails();
+                DisplayBookDetails(book);
             }
             else
             {
@@ -80,7 +78,7 @@ namespace Presentation.Screens
 
             bool isOkey = false;
 
-            if (!book.isAvilable())
+            if (!book.IsAvailable())
             {
                 isOkey = _confirmReturnBookOperation();
             }
@@ -96,7 +94,7 @@ namespace Presentation.Screens
             }
             else
             {
-                Console.WriteLine("\n\nError Ouccered , Please Try Again ");
+                Console.WriteLine("\n\nError Occurred , Please Try Again ");
             }
         }
     }

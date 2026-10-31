@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bussiness Layer\Bussiness.csproj" />
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

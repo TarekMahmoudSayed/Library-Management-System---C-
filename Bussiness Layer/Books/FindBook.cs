@@ -1,9 +1,6 @@
-﻿using Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Data_Access.Entities;
 
-namespace Bussiness_Layer.CRUD
+namespace Bussiness_Layer.Books
 {
     public class FindBook
     {

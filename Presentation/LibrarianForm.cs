@@ -1,8 +1,6 @@
-﻿using Entities;
+﻿using Bussiness_Layer.Books;
+
 using Presentation.Screens;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Presentation
 {
@@ -10,9 +8,10 @@ namespace Presentation
     {
         static internal void Login ()
         {
-            Library.Books = Infrastructure.File.LoadBooksDataFormFile();
-           
-            LibrarianMenueScreen.ShowMenueScreen();
+
+            LoadBooks.Execute();
+
+            LibrarianMenuScreen.ShowMenuScreen();
         }
     }
 }

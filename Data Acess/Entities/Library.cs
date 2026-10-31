@@ -1,43 +1,45 @@
-﻿namespace Entities;
+﻿namespace Data_Access.Entities;
 
 static public class Library
 {
-    public static List<Book> Books = new List <Book> (1000);
+    static private List<Book> _books = new List <Book> (1000);
+
+    static public IReadOnlyList<Book> Books => _books;
+
+    static public void Load (List <Book> books)
+    {
+        _books = books ?? new List<Book>(1000);
+    }
     static public bool Add (Book book)
     {
-        if (Books.Contains(book) || book == null)
+        if ( book == null || _books.Contains(book) )
         {
             return false;
         }
 
-        Books.Add(book);
+        _books.Add(book);
 
         return true;
     }
     static public bool Remove (Book book)
     {
-        if (!Books.Contains(book) || book == null)
+        if (book == null || !_books.Contains(book))
         {
             return false;
         }
 
-        Books.Remove(book);
+        _books.Remove(book);
 
         return true;
     }
     static public List<Book> GetAllBooks ()
     {
-        if (Books.Count == 0)
-        {
-            return null;
-        }
-            
-        return Books;
+        return new List<Book>(_books);
         
     }
     static public bool IsBookExistByID (string bookID, out Book book) 
     {
-        foreach (var i in Books)
+        foreach (var i in _books)
         {
             if (i.ID.Equals(bookID, StringComparison.OrdinalIgnoreCase) ){
                 book = i;
@@ -50,7 +52,7 @@ static public class Library
     }
     static public bool IsBookExistByTitle (string title, out Book book) 
     {
-        foreach (var i in Books)
+        foreach (var i in _books)
         {
             if (i.Title.Equals(title, StringComparison.OrdinalIgnoreCase) ){
                 book = i;

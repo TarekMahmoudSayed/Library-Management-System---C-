@@ -5,7 +5,7 @@
     <File Path="User Stories.png" />
   </Folder>
   <Project Path="Bussiness Layer/Bussiness.csproj" Id="6788d0f0-116b-48de-8687-49b8191acd88" />
-  <Project Path="D:/source/repos/CSharpFundamentals/Library Management System/Data Acess/Data Acess.csproj" Id="da81e6a3-2b4a-4a5f-a640-50df7da3a3b1" />
-  <Project Path="D:/source/repos/CSharpFundamentals/Library Management System/Presentation/Presentation.csproj" Id="ddbf624a-a765-4ed6-b56e-b87db08e65c5" />
+  <Project Path="Presentation/Presentation.csproj" Id="ddbf624a-a765-4ed6-b56e-b87db08e65c5" />
+  <Project Path="Data Acess/Data_Access.csproj" Id="da81e6a3-2b4a-4a5f-a640-50df7da3a3b1" />
   <Project Path="Infrastructure/Infrastructure.csproj" Id="ba1e4257-1835-4865-8803-a379b52488a3" />
 </Solution>

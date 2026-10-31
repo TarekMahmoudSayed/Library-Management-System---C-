@@ -1,14 +1,10 @@
 ﻿using Bussiness_Layer;
-using Bussiness_Layer.CRUD;
-using Entities;
-using Infrastructure;
-using Presentation.Screens;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Persentation;
+using Data_Access.Entities;
+using Bussiness_Layer.Books;
+using Bussiness_Layer.Borrowing;
 
-namespace Data_Acess; 
-
+namespace Presentation.Screens;
 internal class RequestBorrowBookScreen : Screen
 {
 
@@ -71,7 +67,7 @@ internal class RequestBorrowBookScreen : Screen
         if (FindBook.Execute(out book, input, searchBy))
         {
             Console.WriteLine("\n\nBook Found :-) \n");
-            book.DisplayDetails();
+            DisplayBookDetails(book);
         }
         else
         {
@@ -81,7 +77,7 @@ internal class RequestBorrowBookScreen : Screen
 
         bool isOkey = false;
 
-        if (book.isAvilable())
+        if (book.IsAvailable())
         {
             isOkey = _confirmBorrowBookOperation();
         }

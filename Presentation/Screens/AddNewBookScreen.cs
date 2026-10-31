@@ -1,8 +1,5 @@
-﻿using Bussiness_Layer.CRUD;
-using Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Data_Access.Entities;
+using Bussiness_Layer.Books;
 
 namespace Presentation.Screens; 
 
@@ -38,7 +35,7 @@ internal class AddNewBookScreen : Screen
             Console.WriteLine("\n\nBook Added Successfully ");
         }else
         {
-            Console.WriteLine("\n\nError Ouccered , Please Try Again ");
+            Console.WriteLine("\n\nError Occurred , Please Try Again ");
         }
 
 

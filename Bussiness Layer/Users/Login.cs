@@ -1,24 +1,19 @@
-﻿using DataModeling;
+﻿using Data_Access.Entities;
 using Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Data_Modeling;
-using System.Net.Http.Headers;
 
 
-namespace Bussiness_Layer;
+namespace Bussiness_Layer.Users;
 
 public  class Login
 {
-    static internal List<User> users = new List<User> (1000);
     static private User CurrentUser = new User ();
     
     static public bool HasCard(string username) 
     {
+        List<User> users = TextFileStorage.LoadUsers();
+
         CurrentUser.Card = new LibraryCard();
-        users = Infrastructure.File.LoadUsersDataFormFile();
+        users = TextFileStorage.LoadUsers();
         
         foreach (var i in users)
         {
@@ -32,24 +27,24 @@ public  class Login
         return false;
     }
 
-    static public bool Authentication (string password)
+    static public bool Authenticate (string password)
     {
-        return (CurrentUser.Card.Password == password);
+        return EncryptionUtility.Verify(password, CurrentUser.Card.Password);
     }
 
-    static public bool Authorization (out Permissions permission)
+    static public bool Authorize (out UserRole permission)
     {
 
         switch (CurrentUser.Card.Permission)
         {
             case 1:
-                permission = Permissions.LibraryUser;
+                permission = UserRole.Member;
                 break;
             case -1:
-                permission = Permissions.Librarian;
+                permission = UserRole.Librarian;
                 break;
             default:
-                permission = Permissions.none;
+                permission = UserRole.None;
                 break;
 
         }
@@ -69,7 +64,7 @@ public  class Login
             return CurrentUser.Name;
         }
     }
-    static public string GetCurrentPermssion ()
+    static public string GetCurrentRoleName ()
     {
 
         if (string.IsNullOrEmpty(CurrentUser.Name))
@@ -78,7 +73,7 @@ public  class Login
         }
 
         if (CurrentUser.Card.Permission == -1) return "Admin";
-        if (CurrentUser.Card.Permission == 1) return "Library User";
+        if (CurrentUser.Card.Permission == 1) return "Member";
 
         return "";
         
@@ -89,5 +84,7 @@ public  class Login
         CurrentUser = new User ();
         CurrentUser.Card = new LibraryCard ();
     }
+
+
 
 }
