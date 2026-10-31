@@ -211,7 +211,7 @@ public class TextFileStorage
     {
         List<User> users = new List<User>(1000);
 
-        if (!System.IO.File.Exists(_bookFilePath))
+        if (!System.IO.File.Exists(_userFilePath))
         {
             Console.WriteLine("File Not Exist");
             return users;
@@ -253,7 +253,7 @@ public class TextFileStorage
     static public void SaveUsersToFile(List<User> users)
     {
 
-        if (!System.IO.File.Exists(_bookFilePath))
+        if (!System.IO.File.Exists(_userFilePath))
         {
             Console.WriteLine("File Not Exist");
             return ;
