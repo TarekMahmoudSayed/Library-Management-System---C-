@@ -15,7 +15,7 @@ public class TextFileStorage
 
         while (dir != null)
         {
-            string candidate = Path.Combine(dir.FullName, "Data_Access", "Data");
+            string candidate = Path.Combine(dir.FullName, "Data Access", "Data");
 
             if (Directory.Exists(candidate))
             {
@@ -164,7 +164,7 @@ public class TextFileStorage
     static public void AppendUserLine (string line)
     {
 
-        if (!System.IO.File.Exists(_bookFilePath))
+        if (!System.IO.File.Exists(_userFilePath))
         {
             Console.WriteLine("File Not Exist");
             return;
