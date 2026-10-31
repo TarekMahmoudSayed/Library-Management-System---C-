@@ -1,0 +1,9 @@
+The Pragmatic Programmer#//#102#//#Andrew Hunt#//#1999#//#False
+Design Patterns#//#103#//#Erich Gamma#//#1994#//#False
+Introduction to Algorithms#//#104#//#Thomas H. Cormen#//#2009#//#False
+C# in Depth#//#105#//#Jon Skeet#//#2019#//#False
+Head First Design Patterns#//#106#//#Eric Freeman#//#2004#//#False
+Code Complete#//#107#//#Steve McConnell#//#2004#//#False
+Refactoring#//#108#//#Martin Fowler#//#1999#//#False
+Data Structures and Algorithms in C++#//#109#//#Adam Drozdek#//#2012#//#False
+Operating System Concepts#//#110#//#Abraham Silberschatz#//#2018#//#False
