@@ -194,7 +194,13 @@ public class TextFileStorage
         string line = "";
         while ((line = myFile.ReadLine()) != null)
         {
-            books.Add(ConvertLineToBookRecord(line));
+            Book book = ConvertLineToBookRecord(line);
+
+            if (book.ID != null)
+            {
+                books.Add(book);
+            }
+
         }
 
         myFile.Close();

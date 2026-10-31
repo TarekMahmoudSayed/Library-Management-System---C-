@@ -6,6 +6,10 @@ static public class AddNewBook
 {
     static public bool Execute (Book book)
     {
+        if (Library.IsBookExistByID(book.ID, out _))
+        {
+            return false;
+        }
 
         if (!Library.Add (book))
         {
